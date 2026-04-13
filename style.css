@@ -1,0 +1,270 @@
+:root {
+    --bg-color: #f0f2f5;
+    --paper-color: #ffffff;
+    --text-color: #000000;
+    --link-color: #000000;
+    --accent-color: #444444;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Computer Modern Serif", "CMU Serif", "Latin Modern Roman", "Times New Roman", serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+header p.subtitle {
+    text-align: center;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.header-controls {
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 12px;
+}
+
+.btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background-color: transparent;
+    color: #444;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.btn-download:hover {
+    background-color: #f9f9f9;
+    color: #000;
+    text-decoration: none;
+    border-color: #bbb;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.resume-container {
+    background-color: var(--paper-color);
+    max-width: 800px;
+    width: 100%;
+    padding: 3rem 4rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    line-height: 1.4;
+}
+
+@media print {
+    @page {
+        margin: 0;
+    }
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        display: block; /* Drop flex in print to avoid random extra pages */
+    }
+    .print-wrapper {
+        width: 6.27in; /* Standard 1-inch margins on A4 paper (8.27in) */
+        margin: 0 auto;
+    }
+    .print-header-space, .print-footer-space {
+        height: 0.5in; /* This simulates top and bottom margins perfectly */
+    }
+    .header-controls {
+        display: none;
+    }
+    .resume-container {
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+        width: 100%;
+    }
+    .item, .project, .inline-item, .interests-table {
+        page-break-inside: avoid;
+    }
+    h2 {
+        page-break-after: avoid;
+        break-after: avoid;
+    }
+    .keep-together {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 24pt;
+    font-weight: normal;
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+header .subtitle {
+    font-size: 12pt;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+header .contact-info {
+    font-size: 10pt;
+}
+
+section {
+    margin-bottom: 1.5rem;
+}
+
+section h2 {
+    font-size: 14pt;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.2rem;
+}
+
+.hrule {
+    height: 1px;
+    background-color: var(--text-color);
+    margin-bottom: 0.8rem;
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+p {
+    margin-bottom: 0.8rem;
+    text-align: justify;
+}
+
+.item {
+    margin-bottom: 1rem;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.item-subheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.3rem;
+}
+
+.location, .date {
+    font-style: italic;
+    white-space: nowrap;
+}
+
+.skills-list {
+    list-style-type: none;
+}
+
+.skills-list li {
+    margin-bottom: 0.4rem;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.bullet-list {
+    margin-left: 1.5rem;
+    margin-top: 0.3rem;
+}
+
+.bullet-list li {
+    margin-bottom: 0.2rem;
+    text-align: justify;
+}
+
+.project {
+    margin-bottom: 1rem;
+}
+
+.inline-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
+}
+
+.description {
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.interests-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.interests-table th, .interests-table td {
+    padding: 0.4rem;
+    text-align: center;
+    vertical-align: top;
+    width: 33.33%;
+}
+
+.interests-table th {
+    font-weight: bold;
+    border-bottom: 1px solid var(--text-color);
+}
+
+@media screen and (max-width: 600px) {
+    .resume-container {
+        padding: 2rem 1.5rem;
+    }
+    
+    .item-header, .item-subheader, .inline-item {
+        flex-direction: column;
+    }
+    
+    .location, .date {
+        font-style: normal;
+        font-size: 0.9em;
+        color: var(--accent-color);
+    }
+    
+    .interests-table, .interests-table tbody, .interests-table tr, .interests-table th, .interests-table td {
+        display: block;
+        width: 100%;
+    }
+    
+    .interests-table tr {
+        margin-bottom: 1rem;
+    }
+}
